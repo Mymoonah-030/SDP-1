@@ -1,5 +1,10 @@
-Software Development Project - I
+# SDP-1
+This is Software Development Project Repository
+
 Name: Mymoonah Habib
-Section: 1
-intake: 51
-Id: 22235103030
+
+Student ID: 22235103030
+
+Intake: 51, Section: 01
+
+Course Teacher: Sheikh Moonwara Anjum Monisha
