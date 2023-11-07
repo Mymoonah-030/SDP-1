@@ -2,15 +2,17 @@
 int main()
 {
     int arr1[10][10], arr2[10][10], i, j, k, rows1, col1, rows2, col2, summation = 0;
-    int sum[10][10], sub[10][10], multiply[10][10];
+    int sum[10][10], sub[10][10], multiply[10][10], transpose[10][10];
     char op;
     printf("Enter number of rows and columns of first matrix\n");
     scanf("%d%d", &rows1, &col1);
     printf("Enter number of rows and columns of second matrix\n");
     scanf("%d%d", &rows2, &col2);
-    printf("Enter the operation: ");
+    printf("Enter the option: ");
     scanf(" %c", &op);
-    if(op=='-')
+    if(op=='1')
+    {
+        printf("\nSubtraction between two matrices : \n---------------------------------");
         if ((rows1 != rows2) || (col1!=col2))
         {
             printf("\nMath Error!\n");
@@ -61,7 +63,7 @@ int main()
 
                 }
             }
-            printf("\nSub of matrices is as follows:\n\n");
+            printf("\nSubtraction of matrices is :\n\n");
             for(i = 0; i < rows1; i++)
             {
                 for(j = 0; j < col1; j++)
@@ -71,7 +73,10 @@ int main()
                 printf("\n");
             }
         }
-    else if(op=='+')
+    }
+    else if(op=='2')
+    {
+        printf("Summation between two matrices : \n---------------------------------");
         if ((rows1 != rows2) || (col1!=col2))
         {
             printf("\nMath Error!\n");
@@ -87,7 +92,7 @@ int main()
                     scanf("%d", &arr1[i][j]);
                 }
             }
-            printf("\n\nDisplay the 1st matrix:\n\n");
+            printf("\nDisplay the 1st matrix:\n");
             for (i = 0; i < rows1; i++)
             {
                 for (j = 0; j < col1; j++)
@@ -105,7 +110,7 @@ int main()
                     scanf("%d", &arr2[i][j]);
                 }
             }
-            printf("\n\nDisplay the 2nd matrix:\n\n");
+            printf("\nDisplay the 2nd matrix:\n");
             for (i = 0; i < rows2; i++)
             {
                 for (j = 0; j < col2; j++)
@@ -121,7 +126,7 @@ int main()
                     sum[i][j] = arr1[i][j] + arr2[i][j];
                 }
             }
-            printf("\nSum of matrices is as follows:\n\n");
+            printf("\nSummation of matrices is :\n\n");
             for(i = 0; i < rows1; i++)
             {
                 for(j = 0; j < col1; j++)
@@ -131,10 +136,13 @@ int main()
                 printf("\n");
             }
         }
-    else if(op=='*')
+    }
+    else if(op=='3')
+    {
+        printf("Multiplication between two matrices : \n-------------------------------------");
         if(col1 != rows2)
         {
-            printf("Math Error!\n");
+            printf("\nMath Error!\n");
         }
         else
         {
@@ -147,7 +155,7 @@ int main()
                     scanf("%d", &arr1[i][j]);
                 }
             }
-            printf("\n\nDisplay the 1st matrix:\n\n");
+            printf("\nDisplay the 1st matrix:\n");
             for (i = 0; i < rows1; i++)
             {
                 for (j = 0; j < col1; j++)
@@ -165,7 +173,7 @@ int main()
                     scanf("%d", &arr2[i][j]);
                 }
             }
-            printf("\n\nDisplay the 2nd matrix:\n\n");
+            printf("\nDisplay the 2nd matrix:\n");
             for (i = 0; i < rows2; i++)
             {
                 for (j = 0; j < col2; j++)
@@ -186,7 +194,7 @@ int main()
                     summation = 0;
                 }
             }
-            printf("\n\nMultiplication of the matrices:\n\n");
+            printf("\nMultiplication of the matrices:\n\n");
             for (i = 0; i < rows1; i++)
             {
                 for (j = 0; j < col2; j++)
@@ -194,7 +202,44 @@ int main()
                 printf("\n");
             }
         }
-    else
-        printf("Invalid!");
-    getch();
-}
+    }
+    else if(op=='4')
+    {
+        printf("Transpose Matrices : \n---------------------------------");
+        printf("\nEnter matrix elements:\n");
+        for (int i = 0; i < rows1; ++i)
+            for (int j = 0; j < col1; ++j)
+            {
+                printf("[%d][%d]: ", i, j);
+                scanf("%d", &arr1[i][j]);
+            }
+        printf("\nEntered matrix: \n");
+        for (int i = 0; i < rows1; ++i)
+        {
+            for (int j = 0; j < col1; ++j)
+            {
+                printf("%d  ", arr1[i][j]);
+            }
+            printf("\n");
+        }
+        for (int i = 0; i < rows1; ++i)
+        {
+            for (int j = 0; j < col1; ++j)
+            {
+                transpose[j][i] = arr1[i][j];
+            }
+        }
+        printf("\nTranspose of the matrix:\n");
+        for (int i = 0; i < col1; ++i)
+        {
+            for (int j = 0; j < rows1; ++j)
+            {
+                printf("%d  ", transpose[i][j]);
+            }
+            printf("\n");
+        }
+    }
+        else
+            printf("Invalid!");
+        getch();
+    }
